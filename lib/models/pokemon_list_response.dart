@@ -1,3 +1,5 @@
+import 'package:progettino_flutter/models/pokemon_detail_response.dart';
+
 class PokemonListResponse {
   int? count;
   String? next;
@@ -33,18 +35,23 @@ class PokemonListResponse {
 class PokemonListResults {
   String? name;
   String? url;
+  String? image;
+  PokemonDetailResponse? pokemonDetailResponse;
 
-  PokemonListResults({this.name, this.url});
+  PokemonListResults({this.name, this.url, this.image, this.pokemonDetailResponse});
 
   PokemonListResults.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     url = json['url'];
+    image  = json['image'];
+
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['name'] = this.name;
     data['url'] = this.url;
+    data['image'] = this.image;
     return data;
   }
 }
